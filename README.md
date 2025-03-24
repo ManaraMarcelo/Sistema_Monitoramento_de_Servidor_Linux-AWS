@@ -1,4 +1,4 @@
-# Projeto de Deploy com Linux e AWS
+# Sistema de Monitoramento de Servidor [Linux e AWS]
 
 Este projeto envolve a configuração de uma instância EC2 na AWS com Nginx, automação de monitoramento e notificações via Telegram.
 Sempre em casos de queda do servidor web, após o tempo determinado no script ele irá retornar ativo e enviará uma notificação via Telegram para o seu dispositivo conectado (desktop e/ou mobile), alertando sobre a queda e notificando o retorno do servidor.
@@ -20,7 +20,7 @@ Sempre em casos de queda do servidor web, após o tempo determinado no script el
 ## 1️⃣ Criação da VPC
 Criar uma VPC de sua preferência. No meu caso criei uma com 3 subnets publicas e 3 privadas:
 
----Imagem---
+![Rotas de VPC](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/VPC.png)
 
 ## 2️⃣ Configuração do Security Group
 - Criar um Security Group com três partições: SSH, HTTP e CUSTOM TCP(caso queira liberar alguma porta específica).
