@@ -78,7 +78,7 @@ O diretório padrão para arquivos da web no Ubuntu é:
 cd /var/www/html
 ```
 onde nesse diretório podemos adicionar nosso 'index.html' e 'style.css' ou mais arquivos como preferir.
-Minha pagina = [notificacao&log](./scripts/notificacao&log.sh)
+Minha pagina = [index.html](./scripts/paginaHTML.sh)
 
 ## 9️⃣ Configuração do SystemD
 Editar o serviço do Nginx para garantir reinicialização automática:
