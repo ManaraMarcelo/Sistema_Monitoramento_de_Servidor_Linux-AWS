@@ -104,14 +104,15 @@ Após o 'pkill' se você verificar o status e ele estiver ativo, quer dizer que 
 
 ## 🔟 Criação do Bot do Telegram
 Criar um bot via @BotFather e obter o token.
+ - Pesquise por '@BotFather' no buscar e crio um bot a partir dele.
 
-Para obter o chat ID:
+Para obter o chat ID acesse o enderço a seguir alterando o seu TOKEN:
 ```sh
 https://api.telegram.org/bot<TOKEN>/getUpdates
 ```
 O ID estará no JSON retornado:
 ```json
-"chat":{"id":7596659083,"first_name":"Marcelo","last_name":"Manara","type":"private"}
+"chat":{"id":<seuChatID_emNumeros>,"first_name":"<seuNome>","last_name":"<seuSobrenome>","type":"private"}
 ```
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
