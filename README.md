@@ -4,7 +4,7 @@ Este projeto envolve a configuração de uma instância EC2 na AWS com Nginx, au
 Sempre em casos de queda do servidor web, após o tempo determinado no script ele irá retornar ativo e enviará uma notificação via Telegram para o seu dispositivo conectado (desktop e/ou mobile), alertando sobre a queda e notificando o retorno do servidor.
 
 ## 📌 Índice
-1. [Criação da VPC](#criação-da-vpc)
+1. [Criação da VPC](#criacao-da-vpc)
 2. [Configuração do Security Group](#configuração-do-security-group)
 3. [Criação da Instância](#criação-da-instância)
 4. [Configuração da Chave de Acesso](#configuração-da-chave-de-acesso)
