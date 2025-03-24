@@ -174,7 +174,7 @@ Verificar logs do Nginx:
 tail -f /var/log/nginx/access.log
 ```
 
-1️⃣3️⃣ Teste Final
+## 1️⃣3️⃣ Teste Final
 Agora, após feitas todas as configurações anteriores, resta apenas testar se está funcionando:
 - derrube o sistema nginx com:
 ```sh
@@ -182,7 +182,7 @@ sudo pkill -9 nginx
 ```
 - após isso o servidor web deve cair e retornar uma notificação pelo telegram.
 
-✅ Conclusão
+## ✅ Conclusão
 Este projeto demonstra a implementação de um servidor web robusto na AWS, utilizando Linux, Nginx e automação para garantir alta disponibilidade e monitoramento eficiente. Além disso, integramos um sistema de notificações via Telegram, permitindo alertas rápidos sempre que houver quedas no serviço.
 
 Através desse projeto, foi possível explorar conceitos essenciais de infraestrutura em nuvem, automação e monitoramento, tornando o ambiente mais seguro e confiável. O uso de SystemD e logs personalizados garante uma administração eficiente, enquanto o bot do Telegram proporciona uma camada extra de controle e resposta rápida a incidentes.
