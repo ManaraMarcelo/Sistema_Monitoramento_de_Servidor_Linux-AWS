@@ -1,101 +1,149 @@
-# Linux + AWS - Monitoramento e Automação
+# Projeto de Deploy com Linux e AWS
 
-## 📌 Sobre o Projeto
-Este projeto foi desenvolvido para implementar um ambiente automatizado de monitoramento e recuperação do serviço **NGINX** em uma instância **AWS EC2** rodando **Ubuntu Linux**. Ele inclui notificações via **Telegram** e armazenamento de logs para análise posterior.
+Este projeto envolve a configuração de uma instância EC2 na AWS com Nginx, automação de monitoramento e notificações via Telegram.
 
----
+## 📌 Índice
+1. [Criação da VPC](#criação-da-vpc)
+2. [Configuração do Security Group](#configuração-do-security-group)
+3. [Criação da Instância](#criação-da-instância)
+4. [Configuração da Chave de Acesso](#configuração-da-chave-de-acesso)
+5. [Conexão à Instância](#conexão-à-instância)
+6. [Instalação de Dependências](#instalação-de-dependências)
+7. [Ativação do Nginx](#ativação-do-nginx)
+8. [Modificação da Página Web](#modificação-da-página-web)
+9. [Configuração do SystemD](#configuração-do-systemd)
+10. [Criação do Bot do Telegram](#criação-do-bot-do-telegram)
+11. [Criação do Script de Monitoramento](#criação-do-script-de-monitoramento)
+12. [Logs e Monitoramento](#logs-e-monitoramento)
 
-## 📜 Menu
-- [🚀 Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [⚙️ Pré-requisitos](#️-pré-requisitos)
-- [📂 Estrutura do Projeto](#-estrutura-do-projeto)
-- [📌 Configuração do NGINX](#-configuração-do-nginx)
-- [📡 Monitoramento e Notificação](#-monitoramento-e-notificação)
-- [📊 Armazenamento de Logs](#-armazenamento-de-logs)
-- [🎯 Próximos Passos](#-próximos-passos)
+## 1️⃣ Criação da VPC
+Criar uma VPC com três sub-redes separadas.
 
----
+## 2️⃣ Configuração do Security Group
+- Criar um Security Group com três partições.
+- Liberar portas HTTP e SSH privadas apenas para o seu IP.
+- Após a aplicação estar pronta, liberar apenas HTTP.
 
-## 🚀 Tecnologias Utilizadas
-- **AWS EC2** (Ubuntu 22.04)
-- **NGINX** (Web Server)
-- **SystemD** (Gerenciamento de serviços)
-- **Python** (Notificações via Telegram)
-- **Shell Script** (Automação e logs)
+## 3️⃣ Criação da Instância
+- Criar um par de chaves para acesso.
+- Habilitar IP público.
+- Selecionar o Security Group correto.
+- Escolher a sub-rede pública da VPC.
 
----
-
-## ⚙️ Pré-requisitos
-Antes de começar, você precisará ter:
-- Uma instância EC2 rodando Ubuntu
-- Acesso **SSH** à instância
-- Um **bot do Telegram** configurado para receber notificações
-- NGINX instalado
-
----
-
-## 📂 Estrutura do Projeto
-```bash
-/
-├── /scripts
-│   ├── monitor_nginx.sh       # Script para monitorar e reiniciar o NGINX
-│   ├── notify_telegram.py      # Script Python para enviar notificações
-│   ├── logs.txt               # Arquivo de log dos eventos
-├── /systemd
-│   ├── nginx-monitor.service   # Serviço systemd para o monitoramento automático
+## 4️⃣ Configuração da Chave de Acesso
+Mover a chave para `/home/marcelomanara/.ssh/` e definir permissões:
+```sh
+chmod 400 /home/marcelomanara/.ssh/sua-chave.pem
 ```
 
----
-
-## 📌 Configuração do NGINX
-1. Instale o **NGINX**:
-   ```bash
-   sudo apt update && sudo apt install -y nginx
-   ```
-2. Inicie e habilite o serviço:
-   ```bash
-   sudo systemctl start nginx
-   sudo systemctl enable nginx
-   ```
-
----
-
-## 📡 Monitoramento e Notificação
-Criamos um script que monitora o status do NGINX e reinicia o serviço se necessário. Caso o serviço falhe, ele envia uma notificação via Telegram.
-
-### 🔧 Configuração do Monitoramento
-Crie o script `/scripts/monitor_nginx.sh`:
-```bash
-#!/bin/bash
-if ! systemctl is-active --quiet nginx; then
-    echo "$(date) - NGINX caiu! Reiniciando..." >> /scripts/logs.txt
-    systemctl restart nginx
-    python3 /scripts/notify_telegram.py "NGINX caiu e foi reiniciado!"
-fi
+## 5️⃣ Conexão à Instância
+Conectar via SSH usando:
+```sh
+ssh -i /home/marcelomanara/.ssh/sua-chave.pem ubuntu@IP_DA_INSTÂNCIA
 ```
 
-Dê permissão de execução:
-```bash
-chmod +x /scripts/monitor_nginx.sh
+## 6️⃣ Instalação de Dependências
+```sh
+sudo apt-get update -y
+sudo apt-get install iptables nginx -y
 ```
 
----
+## 7️⃣ Ativação do Nginx
+```sh
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+Acesse via IP público da instância no navegador.
 
-## 📊 Armazenamento de Logs
-Todos os eventos são registrados no arquivo `logs.txt` para análise futura:
-```bash
-echo "$(date) - Mensagem de log" >> /scripts/logs.txt
+## 8️⃣ Modificação da Página Web
+O diretório padrão para arquivos da web no Ubuntu é:
+```sh
+cd /var/www/html
 ```
 
----
+## 9️⃣ Configuração do SystemD
+Editar o serviço do Nginx para garantir reinicialização automática:
+```sh
+sudo nano /usr/lib/systemd/system/nginx.service
+```
+Adicionar as linhas em `[Service]`:
+```
+Restart=always
+RestartSec=7s
+```
+Recarregar e reiniciar o serviço:
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart nginx
+```
+Testar a configuração:
+```sh
+sudo systemctl status nginx
+sudo pkill -9 nginx
+sudo systemctl status nginx
+```
 
-## 🎯 Próximos Passos
-- [ ] Adicionar suporte a envio de logs via Telegram
-- [ ] Criar um painel de monitoramento
-- [ ] Implementar métricas via Prometheus
+## 🔟 Criação do Bot do Telegram
+Criar um bot via @BotFather e obter o token.
 
----
+Para obter o chat ID:
+```sh
+https://api.telegram.org/bot<TOKEN>/getUpdates
+```
+O ID estará no JSON retornado:
+```json
+"chat":{"id":7596659083,"first_name":"Marcelo","last_name":"Manara","type":"private"}
+```
 
-📩 **Dúvidas ou sugestões?** Entre em contato! 🚀
+## 1️⃣1️⃣ Criação do Script de Monitoramento
+Criar script Python para monitoramento e notificações em `/usr/local/bin/telegram_notify.py`.
 
+Criar script Bash para monitoramento em `/usr/local/bin/monitor_nginx.sh` e conceder permissão de execução:
+```sh
+sudo chmod +x /usr/local/bin/monitor_nginx.sh
+```
+Criar serviço SystemD:
+```sh
+sudo nano /etc/systemd/system/monitor_nginx.service
+```
+Adicionar:
+```
+[Unit]
+Description=Monitoramento do Nginx
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/monitor_nginx.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+Habilitar e iniciar o serviço:
+```sh
+sudo systemctl enable monitor_nginx
+sudo systemctl start monitor_nginx
+sudo systemctl status monitor_nginx
+```
+Para remover:
+```sh
+sudo systemctl disable monitor_nginx
+sudo rm /etc/systemd/system/monitor_nginx.service
+sudo rm /usr/local/bin/monitor_nginx.sh
+```
+
+## 1️⃣2️⃣ Logs e Monitoramento
+Para armazenar logs quando o site cair:
+```sh
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Site caiu" >> /var/log/nginx_monitoramento.log
+```
+Verificar logs do serviço:
+```sh
+sudo journalctl -u monitor_nginx --since "1 hour ago"
+```
+Verificar logs do Nginx:
+```sh
+tail -f /var/log/nginx/access.log
+```
 
