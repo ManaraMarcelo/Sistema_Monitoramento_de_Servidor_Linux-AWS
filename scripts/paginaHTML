@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Linux + AWS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Projeto Linux + AWS</h1>
+        <p>Configuração de Servidor Web com Monitoramento</p>
+    </header>
+    <section class="container">
+        <h2>Sobre o Projeto</h2>
+        <p>Este projeto visa configurar uma infraestrutura robusta utilizando Linux e AWS, abrangendo VPC, EC2, Nginx, monitoramento e automação.</p>
+    </section>
+    <section class="container features">
+        <h2>Principais Tecnologias</h2>
+        <ul>
+            <li>Amazon VPC</li>
+            <li>Instâncias EC2</li>
+            <li>Nginx como Proxy Reverso</li>
+            <li>Monitoramento e Observabilidade</li>
+            <li>Automação com scripts e ferramentas DevOps</li>
+        </ul>
+    </section>
+
+    <section class="container">
+        <h2>Instalação do Nginx dentro da Instancia AWS</h2>
+        <pre><code class="bash">
+        # Instalando o nginx no Ubuntu virtual
+        sudo apt-get install
+
+        # Inicio o sistema nginx
+        sudo systemctl start nginx
+
+        # Ativo o sistema nginx
+        sudo systemctl enable nginx
+
+        </code></pre>
+    </section>
+    
+    <section class="container">
+        <h2>Alteração Página Web</h2>
+        <pre><code class="bash">
+        # Acesso o diretório onde encontro o html
+        cd var/www/html 
+
+        # Crio a página 'index.html' com meu site
+        sudo nano index.html
+
+        # Crio o arquivo CSS para estilização 'styles.css' 
+        sudo nano styles.css 
+
+
+        </code></pre>
+    </section>
+
+    <section class="container">
+        <h2>Código bash para monitoramento do sistema:</h2>
+        <pre><code class="bash">
+            #!/bin/bash
+
+            while true; do
+                if ! systemctl is-active --quiet nginx; then
+                    echo "⚠️ Nginx caiu! Reiniciando e enviando notificação..."
+                    echo "$(date '+%Y-%m-%d %H:%M:%S') - O site caiu e foi reiniciado" >> /var/log/nginx_monitoramento.log
+                    python3 /mnt/h/ACADEMIC/DEV_COMPASS_UOL/1-PROJETO-Linux+AWS/BACK_END/telegram_notify.py
+                fi
+                sleep 10  # Verifica a cada 10s
+            done      
+        </code></pre>
+    </section>
+
+    <footer>
+        <p>Desenvolvido por Marcelo Manara | 2025</p>
+    </footer>
+</body>
+</html>
