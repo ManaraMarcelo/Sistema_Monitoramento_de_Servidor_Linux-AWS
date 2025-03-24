@@ -46,7 +46,7 @@ chmod 400 /home/<seuUsuario>/.ssh/<sua-chave>.pem
 ## 5️⃣ Conexão à Instância
 Conectar via SSH usando o comando à seguir:
 ```sh
-ssh -i /home/<seuUsuario>/.ssh/sua-chave.pem ubuntu@IP_DA_INSTÂNCIA
+ssh -i /home/"seuUsuario"/.ssh/"sua-chave.pem" ubuntu@IP_DA_INSTÂNCIA
 ```
 Ou copiando o comando gerado dentro da aba 'conect to instance' na AWS:
 
@@ -78,8 +78,8 @@ O diretório padrão para arquivos da web no Ubuntu é:
 cd /var/www/html
 ```
 onde nesse diretório podemos adicionar nosso 'index.html' e 'style.css' ou mais arquivos como preferir.
-- Minha pagina = [index.html](scripts/paginaHTML).
-- Minha estilização = [style.css](scripts/estilizacaoCSS).
+- Minha pagina = [index.html](scripts/index.html).
+- Minha estilização = [style.css](scripts/styles.css).
 
 ## 9️⃣ Configuração do SystemD
 Editar o serviço do Nginx para garantir reinicialização automática:
@@ -118,11 +118,11 @@ O ID estará no JSON retornado:
 ```
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
-Criar script Python para monitoramento e notificações em `/usr/local/bin/telegram_notify.py`.
-- Meu código Python = [telegram_notify.py](scripts/notificacoesPYTHON).
+Criar script Python para notificações em `/usr/local/bin/telegram_notify.py`.
+- Meu código Python = [telegram_notify.py](scripts/telegram_notify.py).
 
 Criar script Bash para monitoramento em `/usr/local/bin/monitor_nginx.sh` e conceder permissão de execução:
-- Meu código Bash = [monitoramento&log](scripts/monitoramentoBASH.sh).
+- Meu código Bash = [monitor_nginx.sh](scripts/monitor_nginx.sh).
 
 ```sh
 sudo chmod +x /usr/local/bin/monitor_nginx.sh
