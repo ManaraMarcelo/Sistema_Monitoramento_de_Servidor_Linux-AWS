@@ -114,7 +114,7 @@ https://api.telegram.org/bot<TOKEN>/getUpdates
 ```
 O ID estará no JSON retornado:
 ```json
-"chat":{"id":<seuChatID_emNumeros>,"first_name":"<seuNome>","last_name":"<seuSobrenome>","type":"private"}
+"chat":{"id":"seuChatID_emNumeros","first_name":"seuNome","last_name":"seuSobrenome","type":"private"}
 ```
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
