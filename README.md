@@ -1,6 +1,7 @@
 # Projeto de Deploy com Linux e AWS
 
 Este projeto envolve a configuração de uma instância EC2 na AWS com Nginx, automação de monitoramento e notificações via Telegram.
+Sempre em casos de queda do servidor web, após o tempo determinado no script ele irá retornar ativo e enviará uma notificação via Telegram para o seu dispositivo conectado (desktop e/ou mobile), alertando sobre a queda e notificando o retorno do servidor.
 
 ## 📌 Índice
 1. [Criação da VPC](#criação-da-vpc)
