@@ -78,8 +78,8 @@ O diretório padrão para arquivos da web no Ubuntu é:
 cd /var/www/html
 ```
 onde nesse diretório podemos adicionar nosso 'index.html' e 'style.css' ou mais arquivos como preferir.
-Minha pagina = [index.html](scripts/paginaHTML).
-Minha estilização = [style.css](scripts/estilizacaoCSS).
+- Minha pagina = [index.html](scripts/paginaHTML).
+- Minha estilização = [style.css](scripts/estilizacaoCSS).
 
 ## 9️⃣ Configuração do SystemD
 Editar o serviço do Nginx para garantir reinicialização automática:
@@ -119,8 +119,11 @@ O ID estará no JSON retornado:
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
 Criar script Python para monitoramento e notificações em `/usr/local/bin/telegram_notify.py`.
+- Meu código Python = 
 
 Criar script Bash para monitoramento em `/usr/local/bin/monitor_nginx.sh` e conceder permissão de execução:
+- Meu código Bash = [monitoramento&log](scripts/monitoramentoBASH.sh).
+
 ```sh
 sudo chmod +x /usr/local/bin/monitor_nginx.sh
 ```
