@@ -189,5 +189,5 @@ Através desse projeto, foi possível explorar conceitos essenciais de infraestr
 
 Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato. 🚀
 
-🔗 Contato: [zmarcelo2018@gmail.com]
+🔗 Contato: zmarcelo2018@gmail.com
 💡 Sugestões e melhorias são sempre bem-vindas!
