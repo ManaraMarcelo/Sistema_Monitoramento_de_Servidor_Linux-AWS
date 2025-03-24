@@ -164,12 +164,16 @@ O próprio codigo Bash feito anteriormente já cuida desse processo com a seguin
 echo "$(TZ=America/Sao_Paulo date '+%Y-%m-%d %H:%M:%S') - O site caiu e foi reiniciado" >> /var/log/nginx_monitoramento.log
 ```
 Os logs criados são armazenados no diretório: (/var/log/nginx_monitoramento.log)
+Para verificar os logs gerados pelo script feito basta usar o seguinte comando 
+```sh
+sudo cat /var/log/nginx_monitoramento.log
+```
 
-Verificar logs do serviço:
+Caso deseje verificar os logs do serviço criado com mais detalhes:
 ```sh
 sudo journalctl -u monitor_nginx --since "1 hour ago"
 ```
-Verificar logs do Nginx:
+Verificar logs do próprio Nginx:
 ```sh
 tail -f /var/log/nginx/access.log
 ```
@@ -189,6 +193,5 @@ Através desse projeto, foi possível explorar conceitos essenciais de infraestr
 
 Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato. 🚀
 
-🔗 Contato: zmarcelo2018@gmail.com
-
+🔗 Contato: zmarcelo2018@gmail.com                                                                                 
 💡 Sugestões e melhorias são sempre bem-vindas!
