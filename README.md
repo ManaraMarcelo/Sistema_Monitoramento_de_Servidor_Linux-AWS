@@ -119,7 +119,7 @@ O ID estará no JSON retornado:
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
 Criar script Python para monitoramento e notificações em `/usr/local/bin/telegram_notify.py`.
-- Meu código Python = 
+- Meu código Python = [telegram_notify.py](scripts/notificacoesPYTHON).
 
 Criar script Bash para monitoramento em `/usr/local/bin/monitor_nginx.sh` e conceder permissão de execução:
 - Meu código Bash = [monitoramento&log](scripts/monitoramentoBASH.sh).
@@ -151,7 +151,7 @@ sudo systemctl enable monitor_nginx
 sudo systemctl start monitor_nginx
 sudo systemctl status monitor_nginx
 ```
-Para remover:
+Caso um dia precise remover o novo serviço:
 ```sh
 sudo systemctl disable monitor_nginx
 sudo rm /etc/systemd/system/monitor_nginx.service
@@ -159,10 +159,12 @@ sudo rm /usr/local/bin/monitor_nginx.sh
 ```
 
 ## 1️⃣2️⃣ Logs e Monitoramento
-Para armazenar logs quando o site cair:
+O próprio codigo Bash feito anteriormente já cuida desse processo com a seguinte linha:
 ```sh
-echo "$(date '+%Y-%m-%d %H:%M:%S') - Site caiu" >> /var/log/nginx_monitoramento.log
+echo "$(TZ=America/Sao_Paulo date '+%Y-%m-%d %H:%M:%S') - O site caiu e foi reiniciado" >> /var/log/nginx_monitoramento.log
 ```
+Os logs criados são armazenados no diretório: (/var/log/nginx_monitoramento.log)
+
 Verificar logs do serviço:
 ```sh
 sudo journalctl -u monitor_nginx --since "1 hour ago"
@@ -172,3 +174,20 @@ Verificar logs do Nginx:
 tail -f /var/log/nginx/access.log
 ```
 
+1️⃣3️⃣ Teste Final
+Agora, após feitas todas as configurações anteriores, resta apenas testar se está funcionando:
+- derrube o sistema nginx com:
+```sh
+sudo pkill -9 nginx
+```
+- após isso o servidor web deve cair e retornar uma notificação pelo telegram.
+
+✅ Conclusão
+Este projeto demonstra a implementação de um servidor web robusto na AWS, utilizando Linux, Nginx e automação para garantir alta disponibilidade e monitoramento eficiente. Além disso, integramos um sistema de notificações via Telegram, permitindo alertas rápidos sempre que houver quedas no serviço.
+
+Através desse projeto, foi possível explorar conceitos essenciais de infraestrutura em nuvem, automação e monitoramento, tornando o ambiente mais seguro e confiável. O uso de SystemD e logs personalizados garante uma administração eficiente, enquanto o bot do Telegram proporciona uma camada extra de controle e resposta rápida a incidentes.
+
+Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato. 🚀
+
+🔗 Contato: [zmarcelo2018@gmail.com]
+💡 Sugestões e melhorias são sempre bem-vindas!
