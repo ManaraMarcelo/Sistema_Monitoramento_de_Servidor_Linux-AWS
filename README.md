@@ -18,12 +18,16 @@ Sempre em casos de queda do servidor web, após o tempo determinado no script el
 12. [Logs e Monitoramento](#logs-e-monitoramento)
 
 ## 1️⃣ Criação da VPC
-Criar uma VPC com três sub-redes separadas.
+Criar uma VPC de sua preferência. No meu caso criei uma com 3 subnets publicas e 3 privadas:
+
+---Imagem---
 
 ## 2️⃣ Configuração do Security Group
-- Criar um Security Group com três partições.
-- Liberar portas HTTP e SSH privadas apenas para o seu IP.
-- Após a aplicação estar pronta, liberar apenas HTTP.
+- Criar um Security Group com três partições: SSH, HTTP e CUSTOM TCP(caso queira liberar alguma porta específica).
+- Liberar portas HTTP(80) e SSH(22) privadas apenas para o seu IP.
+- Após a aplicação estar pronta, liberar apenas HTTP para o público, pois o SSH fica para acesso administrativo;.
+
+--- IMAGEM ---
 
 ## 3️⃣ Criação da Instância
 - Criar um par de chaves para acesso.
@@ -31,36 +35,49 @@ Criar uma VPC com três sub-redes separadas.
 - Selecionar o Security Group correto.
 - Escolher a sub-rede pública da VPC.
 
+--- IMAGEM ---
+
 ## 4️⃣ Configuração da Chave de Acesso
-Mover a chave para `/home/marcelomanara/.ssh/` e definir permissões:
+Mover a chave privada baixada para `/home/<seuUsuario>/.ssh/` ou um diretório de sua preferência e definir permissões:
 ```sh
-chmod 400 /home/marcelomanara/.ssh/sua-chave.pem
+chmod 400 /home/<seuUsuario>/.ssh/<sua-chave>.pem
 ```
 
 ## 5️⃣ Conexão à Instância
-Conectar via SSH usando:
+Conectar via SSH usando o comando à seguir:
 ```sh
-ssh -i /home/marcelomanara/.ssh/sua-chave.pem ubuntu@IP_DA_INSTÂNCIA
+ssh -i /home/<seuUsuario>/.ssh/sua-chave.pem ubuntu@IP_DA_INSTÂNCIA
 ```
+Ou copiando o comando gerado dentro da aba 'conect to instance' na AWS:
+
+---IMAGEM---
 
 ## 6️⃣ Instalação de Dependências
+Após ter se conectado com sucesso à instância, precisamos instalar o **NGINX**
 ```sh
 sudo apt-get update -y
-sudo apt-get install iptables nginx -y
+sudo apt-get install nginx -y
 ```
 
 ## 7️⃣ Ativação do Nginx
+Após a instalação, o próximo passo é iniciar e testar o NGINX 
 ```sh
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 Acesse via IP público da instância no navegador.
+Se o serviço estiver funcionando corretamente, deve aparecer uma página web parecida com essa: 
+
+---IMAGEM---
 
 ## 8️⃣ Modificação da Página Web
+Para estilizar a página web podemos fazer os seguintes passos: 
+
 O diretório padrão para arquivos da web no Ubuntu é:
 ```sh
 cd /var/www/html
 ```
+onde nesse diretório podemos adicionar nosso 'index.html' e 'style.css' ou mais arquivos como preferir.
 
 ## 9️⃣ Configuração do SystemD
 Editar o serviço do Nginx para garantir reinicialização automática:
@@ -83,6 +100,7 @@ sudo systemctl status nginx
 sudo pkill -9 nginx
 sudo systemctl status nginx
 ```
+Após o 'pkill' se você verificar o status e ele estiver ativo, quer dizer que está funcionando o systemd
 
 ## 🔟 Criação do Bot do Telegram
 Criar um bot via @BotFather e obter o token.
