@@ -5,17 +5,19 @@ Sempre em casos de queda do servidor web, após o tempo determinado no script el
 
 ## 📌 Índice
 1. [Criação da VPC](#1️⃣-criação-da-vpc)
-2. [Configuração do Security Group](#configuração-do-security-group)
-3. [Criação da Instância](#criação-da-instância)
-4. [Configuração da Chave de Acesso](#configuração-da-chave-de-acesso)
-5. [Conexão à Instância](#conexão-à-instância)
-6. [Instalação de Dependências](#instalação-de-dependências)
-7. [Ativação do Nginx](#ativação-do-nginx)
-8. [Modificação da Página Web](#modificação-da-página-web)
-9. [Configuração do SystemD](#configuração-do-systemd)
-10. [Criação do Bot do Telegram](#criação-do-bot-do-telegram)
-11. [Criação do Script de Monitoramento](#criação-do-script-de-monitoramento)
-12. [Logs e Monitoramento](#logs-e-monitoramento)
+2. [Configuração do Security Group](#2️⃣-configuração-do-security-group)
+3. [Criação da Instância](#3️⃣-criação-da-instância)
+4. [Configuração da Chave de Acesso](#4️⃣-configuração-da-chave-de-acesso)
+5. [Conexão à Instância](#5️⃣-conexão-à-instância)
+6. [Instalação de Dependências](#6️⃣-instalação-de-dependências)
+7. [Ativação do Nginx](#7️⃣-ativação-do-nginx)
+8. [Modificação da Página Web](#8️⃣-modificação-da-página-web)
+9. [Configuração do SystemD](#9️⃣-configuração-do-systemd)
+10. [Criação do Bot do Telegram](#🔟-criação-do-bot-do-telegram)
+11. [Criação do Script de Monitoramento](#1️⃣1️⃣-criação-do-script-de-monitoramento)
+12. [Logs e Monitoramento](#1️⃣2️⃣-logs-e-monitoramento)
+13. [Teste Final](#1️⃣3️⃣-teste-final)
+14. [Conclusão](#✅-conclusão)
 
 ## 1️⃣ Criação da VPC
 Criar uma VPC de sua preferência. No meu caso criei uma com 3 subnets publicas e 3 privadas:
