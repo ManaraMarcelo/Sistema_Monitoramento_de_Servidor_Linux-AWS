@@ -29,7 +29,7 @@ Criar uma VPC de sua preferência. No meu caso criei uma com 3 subnets publicas 
 - Liberar portas HTTP(80) e SSH(22) privadas apenas para o seu IP.
 - Após a aplicação estar pronta, liberar apenas HTTP para o público, pois o SSH fica para acesso administrativo;.
 
---- IMAGEM ---
+![Security Group](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/SecurityGroup.png)
 
 ## 3️⃣ Criação da Instância
 - Criar um par de chaves para acesso.
@@ -37,12 +37,20 @@ Criar uma VPC de sua preferência. No meu caso criei uma com 3 subnets publicas 
 - Selecionar o Security Group correto.
 - Escolher a sub-rede pública da VPC.
 
---- IMAGEM ---
+![Imagem Ubuntu Selecionada](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/AMI%20ubuntu.jpg)
+
+![Criação Key Pair](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/Key%20Pair.jpg)
+
+![Resumo e Configs](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/All%20resume%20Instance.jpg)
+
+![Memória da Instância](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/Instance%20space.jpg)     
+
+Não é necessário mexer em detalhes avançados.
 
 ## 4️⃣ Configuração da Chave de Acesso
-Mover a chave privada baixada para `/home/<seuUsuario>/.ssh/` ou um diretório de sua preferência e definir permissões:
+Mover a chave privada baixada para `/home/"seuUsuario"/.ssh/` ou um diretório de sua preferência e definir permissões:
 ```sh
-chmod 400 /home/<seuUsuario>/.ssh/<sua-chave>.pem
+chmod 400 /home/"seuUsuario"/.ssh/"sua-chave".pem
 ```
 
 ## 5️⃣ Conexão à Instância
@@ -52,7 +60,7 @@ ssh -i /home/"seuUsuario"/.ssh/"sua-chave.pem" ubuntu@IP_DA_INSTÂNCIA
 ```
 Ou copiando o comando gerado dentro da aba 'conect to instance' na AWS:
 
----IMAGEM---
+![Atalho para conectar à instância](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/connect%20SSH.png)
 
 ## 6️⃣ Instalação de Dependências
 Após ter se conectado com sucesso à instância, precisamos instalar o **NGINX**
@@ -70,7 +78,7 @@ sudo systemctl enable nginx
 Acesse via IP público da instância no navegador.
 Se o serviço estiver funcionando corretamente, deve aparecer uma página web parecida com essa: 
 
----IMAGEM---
+![Tela Inicial Nginx](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/welcomeToNginx.jpg)
 
 ## 8️⃣ Modificação da Página Web
 Para estilizar a página web podemos fazer os seguintes passos: 
