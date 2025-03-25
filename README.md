@@ -195,3 +195,78 @@ Se você chegou até aqui, espero que este projeto tenha sido útil para você! 
 
 🔗 Contato: zmarcelo2018@gmail.com                                                                                 
 💡 Sugestões e melhorias são sempre bem-vindas!
+
+
+
+
+# Sistema de Monitoramento de Servidor [Linux e AWS]
+
+Este projeto envolve a configuração de uma instância EC2 na AWS com Nginx, automação de monitoramento e notificações via Telegram.
+Sempre em casos de queda do servidor web, após o tempo determinado no script ele irá retornar ativo e enviará uma notificação via Telegram para o seu dispositivo conectado (desktop e/ou mobile), alertando sobre a queda e notificando o retorno do servidor.
+
+## 📌 Índice
+1. [Criação da VPC](#cria%C3%A7%C3%A3o-da-vpc)
+2. [Configuração do Security Group](#configura%C3%A7%C3%A3o-do-security-group)
+3. [Criação da Instância](#cria%C3%A7%C3%A3o-da-inst%C3%A2ncia)
+4. [Configuração da Chave de Acesso](#configura%C3%A7%C3%A3o-da-chave-de-acesso)
+5. [Conexão à Instância](#conex%C3%A3o-%C3%A0-inst%C3%A2ncia)
+6. [Instalação de Dependências](#instala%C3%A7%C3%A3o-de-depend%C3%AAncias)
+7. [Ativação do Nginx](#ativa%C3%A7%C3%A3o-do-nginx)
+8. [Modificação da Página Web](#modifica%C3%A7%C3%A3o-da-p%C3%A1gina-web)
+9. [Configuração do SystemD](#configura%C3%A7%C3%A3o-do-systemd)
+10. [Criação do Bot do Telegram](#cria%C3%A7%C3%A3o-do-bot-do-telegram)
+11. [Criação do Script de Monitoramento](#cria%C3%A7%C3%A3o-do-script-de-monitoramento)
+12. [Logs e Monitoramento](#logs-e-monitoramento)
+13. [Teste Final](#teste-final)
+14. [Conclusão](#conclus%C3%A3o)
+
+## 1️⃣ Criação da VPC
+...
+
+## 2️⃣ Configuração do Security Group
+...
+
+## 3️⃣ Criação da Instância
+...
+
+## 4️⃣ Configuração da Chave de Acesso
+...
+
+## 5️⃣ Conexão à Instância
+...
+
+## 6️⃣ Instalação de Dependências
+...
+
+## 7️⃣ Ativação do Nginx
+...
+
+## 8️⃣ Modificação da Página Web
+...
+
+## 9️⃣ Configuração do SystemD
+...
+
+## 🔹 Criação do Bot do Telegram
+...
+
+## 🔹 Criação do Script de Monitoramento
+...
+
+## 🔹 Logs e Monitoramento
+...
+
+## 🔹 Teste Final
+...
+
+## ✅ Conclusão
+Este projeto demonstra a implementação de um servidor web robusto na AWS, utilizando Linux, Nginx e automação para garantir alta disponibilidade e monitoramento eficiente. Além disso, integramos um sistema de notificações via Telegram, permitindo alertas rápidos sempre que houver quedas no serviço.
+
+Através desse projeto, foi possível explorar conceitos essenciais de infraestrutura em nuvem, automação e monitoramento, tornando o ambiente mais seguro e confiável. O uso de SystemD e logs personalizados garante uma administração eficiente, enquanto o bot do Telegram proporciona uma camada extra de controle e resposta rápida a incidentes.
+
+Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato. 🚀
+
+🔗 **Contato:** zmarcelo2018@gmail.com  
+💡 Sugestões e melhorias são sempre bem-vindas!
+
+
