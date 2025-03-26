@@ -130,7 +130,8 @@ O ID estará no JSON retornado:
 ```
 
 ## 1️⃣1️⃣ Criação do Script de Monitoramento
-Criar script Python para notificações em `/usr/local/bin/telegram_notify.py`.
+Criar script Python para notificações em `/usr/local/bin/telegram_notify.py`.   
+Não se esqueça de alterar o TOKEN e CHAT_ID.
 - Meu código Python = [telegram_notify.py](scripts/telegram_notify.py).
 
 Criar script Bash para monitoramento em `/usr/local/bin/monitor_nginx.sh` e conceder permissão de execução:
