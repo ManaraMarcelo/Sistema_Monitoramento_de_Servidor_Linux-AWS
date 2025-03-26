@@ -80,6 +80,8 @@ Se o serviço estiver funcionando corretamente, deve aparecer uma página web pa
 
 ![Tela Inicial Nginx](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/welcomeToNginx.jpg)
 
+- instale o python também se não tiver instalado ainda.
+
 ## 8️⃣ Modificação da Página Web
 Para estilizar a página web podemos fazer os seguintes passos: 
 
