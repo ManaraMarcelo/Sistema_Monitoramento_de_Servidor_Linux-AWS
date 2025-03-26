@@ -186,7 +186,7 @@ Caso deseje verificar os logs do serviço criado com mais detalhes:
 ```sh
 sudo journalctl -u monitor_nginx --since "1 hour ago"
 ```
-Verificar logs do próprio Nginx:
+Verificar logs de acesso do próprio Nginx:
 ```sh
 tail -f /var/log/nginx/access.log
 ```
