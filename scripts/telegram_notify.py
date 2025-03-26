@@ -1,8 +1,8 @@
 import requests
 
 # Configurações do Telegram
-TOKEN = "8027561385:AAH0zECAzikdwUfiOOe_Ma2Pvev2do6Rpbw"
-CHAT_ID = "7596659083"
+TOKEN = "SEU_TOKEN"
+CHAT_ID = "SEU_CHAT_ID"
 MESSAGE = "ALERTA: O Nginx caiu e está sendo reiniciado!"
 
 def send_telegram_message(message):
