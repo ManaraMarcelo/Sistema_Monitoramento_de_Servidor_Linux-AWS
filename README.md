@@ -200,6 +200,9 @@ sudo pkill -9 nginx
 - após isso o servidor web deve cair e retornar uma notificação pelo telegram.
 
 ![Notificação Telegram](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/Mensagens%20Telegram.png)     
+
+- e registrar no log mencionado no script.
+
 ![Log de Monitoramento](https://github.com/ManaraMarcelo/Sistema_Monitoramento_de_Servidor_Linux-AWS/blob/main/images/logWsl.png)
 
 ## ✅ Conclusão
@@ -207,7 +210,7 @@ Este projeto demonstra a implementação de um servidor web robusto na AWS, util
 
 Através desse projeto, foi possível explorar conceitos essenciais de infraestrutura em nuvem, automação e monitoramento, tornando o ambiente mais seguro e confiável. O uso de SystemD e logs personalizados garante uma administração eficiente, enquanto o bot do Telegram proporciona uma camada extra de controle e resposta rápida a incidentes.
 
-Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato. 🚀
+Se você chegou até aqui, espero que este projeto tenha sido útil para você! Caso tenha sugestões, dúvidas ou melhorias, fique à vontade para contribuir ou entrar em contato.
 
 🔗 Contato: zmarcelo2018@gmail.com                                                                                 
 💡 Sugestões e melhorias são sempre bem-vindas!
